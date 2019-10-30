@@ -1,0 +1,12 @@
+.body-bottom{
+	margin-top:10px;
+	float: left;
+	width: 100%;
+	height: 40px;
+}
+.copy-right{
+	margin-top:10px;
+	width:100%;
+	text-align: center;
+	float: left;
+}

@@ -1,0 +1,84 @@
+/* front top */
+.body-top {
+	float: left;
+	width: 100%;
+}
+
+.logo {
+	height: 120px;
+	text-align:center;
+	position: relative;
+	width: 100%;
+	background-image:url("../img/logo.png");
+}
+.nav {
+	height: 30px;
+	width: 1022px;
+	background: #F7F7F7;
+	border: 1px solid silver ;
+}
+
+.nav table{
+	width:100%;
+	list-style: none;
+	margin: 0px;
+	table-layout: fixed
+}
+
+.nav tr td {
+	margin-left: 3px;
+	line-height: 28px;
+}
+
+.nav a:link {
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+	background: #F7F7F7;
+}
+
+.nav a:visited {
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+	background: #F7F7F7;
+}
+
+.nav a:hover {
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+	background: #DBDBDB;
+}
+
+.nav a {
+	display: block;
+	text-align: center;
+	height: 28px;
+}
+
+.logo_center{
+	border: 1px solid silver ;
+	width:150px;
+	height:68px;
+	position: absolute;
+	top: 50%;
+	left: 90%;
+	transform: translate(-50%, -50%);
+	background-color: #F7F7F7;
+	text-align:center;
+}
+
+.logo_center .input_text{
+	margin:2px;
+	width:90%;
+}
+
+.logo_center .input_button{
+	margin:2px;
+	width:25%;
+}
+.logo_center div{
+	margin:2px;
+	text-align:center;
+}
