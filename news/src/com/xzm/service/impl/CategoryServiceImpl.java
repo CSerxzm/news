@@ -62,15 +62,4 @@ public class CategoryServiceImpl implements ICategoryService {
 		}
 		return false;
 	}
-	
-	//逻辑设计问题
-	public boolean find(int categoryId, String categoryName) {
-		Category category = null;
-		category = categoryDao.find(categoryId);
-		if(null!=category){
-			return true;
-		}
-		return false;
-	}
-
 }

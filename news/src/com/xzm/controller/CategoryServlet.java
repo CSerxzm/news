@@ -50,9 +50,11 @@ public class CategoryServlet extends HttpServlet {
 				}
 				newsCategoryId = Integer.parseInt(categoryIdString);
 				//null为临时替换
-				if(true==categoryService.find(newsCategoryId,null)){
+				if(categoryService.find(newsCategoryId)!=null){
 					map = newsService.list(pageSize, currentPage, newsCategoryId);
-					map.put("newsCategoryName", null);
+					String newsCategoryName = categoryService.find(newsCategoryId).getCategoryName();
+					System.out.println(newsCategoryName);
+					map.put("newsCategoryName", newsCategoryName);
 					request.setAttribute("map", map);
 					NewsList[] newsList = newsService.listHot();
 					request.setAttribute("newsList", newsList);
