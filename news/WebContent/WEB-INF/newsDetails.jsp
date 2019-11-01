@@ -65,8 +65,8 @@
 			%>
 			<div class="newsDetails-body-middle-comments-list">
 				<div class="newsDetails-body-middle-comments-list-title">
-					<div style="width: 500px;float: left;padding-left: 20px;" ><%=commentLists[i].getCommentUser()%></div>
-					<div style="width: 140px;float: left;" ><%=commentLists[i].getCommentPublishTime()%></div>
+					<div style="width: 30%;float: left;padding-left: 20px;" ><%=commentLists[i].getCommentUser()%></div>
+					<div style="width: 60%;float: left;" ><%=commentLists[i].getCommentPublishTime()%></div>
 				</div>
 				<div class="newsDetails-body-middle-comments-list-content"><%=commentLists[i].getCommentContent()%>
 				</div>
