@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.xzm.dao.IUserDao;
 import com.xzm.model.Comment;
+import com.xzm.model.News;
 import com.xzm.model.Users;
 
 public class UserDaoImpl extends JDBCDaoSupport<Users> implements IUserDao {
@@ -37,5 +38,11 @@ public class UserDaoImpl extends JDBCDaoSupport<Users> implements IUserDao {
 	public List<Users> list(int startRecord, int pageSize) {
 		String listSql = "select * from t_user  order by userName desc limit ?,?";
 		return super.executeList(listSql,Users.class,startRecord,pageSize);
+	}
+	
+	public int update(Users user) {
+		String updateSql = "update t_user set userPass=?,isRoot=? where userName =?";
+		return super.executeUpdateAndDelete(updateSql, user.getUserPass(),
+				user.getIsRoot(),user.getUserName());
 	}
 }

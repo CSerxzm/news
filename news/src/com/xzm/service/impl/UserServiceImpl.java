@@ -61,5 +61,12 @@ public class UserServiceImpl implements IUserService {
 			return false;
 		}
 	}
+	public boolean update(Users user) {
+		if(1==userDao.update(user)){
+			return true;
+		}else {
+			return false;			
+		}
+	}
 
 }

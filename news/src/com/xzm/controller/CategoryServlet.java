@@ -53,7 +53,6 @@ public class CategoryServlet extends HttpServlet {
 				if(categoryService.find(newsCategoryId)!=null){
 					map = newsService.list(pageSize, currentPage, newsCategoryId);
 					String newsCategoryName = categoryService.find(newsCategoryId).getCategoryName();
-					System.out.println(newsCategoryName);
 					map.put("newsCategoryName", newsCategoryName);
 					request.setAttribute("map", map);
 					NewsList[] newsList = newsService.listHot();
@@ -67,7 +66,6 @@ public class CategoryServlet extends HttpServlet {
 				
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
-				System.out.println("error");
 				request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request,
 						response);
 			}

@@ -58,6 +58,8 @@ function confirmDelete(){
 						<td><%=user.getUserPass()%></td>
 						<td><%=user.getIsRoot()%></td>
 						<td><a
+							href="back/manage/user?action=goupdate&userName=<%=user.getUserName()%>">更新</a>
+							<a
 							href="back/manage/user?action=delete&userName=<%=user.getUserName()%>"
 							onclick="return confirmDelete();">删除</a></td>
 					</tr>

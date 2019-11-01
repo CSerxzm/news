@@ -2,6 +2,7 @@ package com.xzm.dao;
 
 import java.util.List;
 
+import com.xzm.model.News;
 import com.xzm.model.Users;
 
 public interface IUserDao {
@@ -13,4 +14,5 @@ public interface IUserDao {
 	List<Users> list();
 	int countRow();
 	List<Users> list(int startRecord, int pageSize);
+	public int update(Users user);
 }

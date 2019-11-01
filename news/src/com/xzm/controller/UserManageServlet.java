@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.xzm.model.Users;
 import com.xzm.service.ICommentService;
 import com.xzm.service.IUserService;
 import com.xzm.service.impl.CommentServiceImpl;
@@ -18,6 +19,8 @@ public class UserManageServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
+	private IUserService userService = new UserServiceImpl();
+	
 	public void destroy() {
 		super.destroy(); // Just puts "destroy" string in log
 		// Put your code here
@@ -34,7 +37,6 @@ public class UserManageServlet extends HttpServlet {
 			int currentPage;
 			Map<String, Object> map = null;
 			try {
-				IUserService userService = new UserServiceImpl();
 				if ("".equals(currentPageString) || null == currentPageString) {
 					currentPage = 1;
 				} else {
@@ -49,7 +51,6 @@ public class UserManageServlet extends HttpServlet {
 				response.sendRedirect("/WEB-INF/background/error.jsp");
 			}
 		}else if("delete".equals(action)){
-			IUserService userService = new UserServiceImpl();
 			String userName = request.getParameter("userName");
 			try {
 				if(true==userService.delete(userName)){
@@ -61,6 +62,11 @@ public class UserManageServlet extends HttpServlet {
 				e.printStackTrace(); 
 				response.sendRedirect("/WEB-INF/background/error.jsp");
 			}
+		}else if("goupdate".equals(action)) {
+			String userName = request.getParameter("userName");
+			request.setAttribute("userName",userName);
+			request.getRequestDispatcher("/WEB-INF/background/updateuser.jsp").forward(request,
+					response);
 		}
 	}
 
@@ -68,18 +74,18 @@ public class UserManageServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.print("    This is ");
-		out.print(this.getClass());
-		out.println(", using the POST method");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
+		String action = request.getParameter("action");
+		if("update".equals(action)) {
+			String userName = request.getParameter("userName");
+			String userPass = request.getParameter("userPass");
+			String isRoot = request.getParameter("isRoot");
+			Users user  = new Users(userName,userPass,isRoot);
+			if (true == userService.update(user)) {
+				response.sendRedirect("user?action=list");
+			} else {
+				response.sendRedirect("/news/WEB-INF/background/error.jsp");
+			}
+		}
 	}
 
 	public void init() throws ServletException {

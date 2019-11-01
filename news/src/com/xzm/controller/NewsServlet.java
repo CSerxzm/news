@@ -84,9 +84,7 @@ public class NewsServlet extends HttpServlet {
 			String commentContent =  new String(request.getParameter("commentContent").getBytes("ISO-8859-1"),"UTF-8");
 			HttpSession session = request.getSession();
 			String userName = (String) session.getAttribute("userName");
-			
-			System.out.println("userName="+userName);
-			
+		
 			if(userName==null) {
 				userName="游客";
 			}

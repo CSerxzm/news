@@ -13,4 +13,5 @@ public interface IUserService {
 	
 	Map<String, Object> list(int pageSize, int currentPage);
 	boolean delete(String userName);
+	boolean update(Users user);
 }

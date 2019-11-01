@@ -5,6 +5,15 @@ public class Users {
 	private String userPass;
 	private String isRoot;
 
+	public Users() {
+		
+	}
+	public Users(String userName,String userPass,String isRoot) {
+		this.userName=userName;
+		this.userPass=userPass;
+		this.isRoot=isRoot;
+	}
+	
 	public String getIsRoot() {
 		return isRoot;
 	}
