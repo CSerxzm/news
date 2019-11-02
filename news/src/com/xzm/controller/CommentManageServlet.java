@@ -28,12 +28,14 @@ public class CommentManageServlet extends HttpServlet {
 		response.setContentType("text/html");
 		String action = request.getParameter("action");
 		if ("list".equals(action)) {
+			
+			ICommentService commentService = new CommentServiceImpl();
+			
 			String currentPageString = request.getParameter("page");
 			int pageSize = 12;
 			int currentPage;
 			Map<String, Object> map = null;
 			try {
-				ICommentService commentService = new CommentServiceImpl();
 				if ("".equals(currentPageString) || null == currentPageString) {
 					currentPage = 1;
 				} else {
@@ -48,7 +50,9 @@ public class CommentManageServlet extends HttpServlet {
 				response.sendRedirect("/WEB-INF/background/error.jsp");
 			}
 		}else if("delete".equals(action)){
+			
 			ICommentService commentService = new CommentServiceImpl();
+			
 			String commentIdString = request.getParameter("id");
 			String commentNewsIdString = request.getParameter("newsId");
 			try {
@@ -68,20 +72,6 @@ public class CommentManageServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.print("    This is ");
-		out.print(this.getClass());
-		out.println(", using the POST method");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
 	}
 
 	public void init() throws ServletException {

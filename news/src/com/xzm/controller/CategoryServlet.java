@@ -20,8 +20,7 @@ public class CategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
+		super.destroy(); 
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -49,7 +48,7 @@ public class CategoryServlet extends HttpServlet {
 					currentPage = Integer.parseInt(currentPageString);
 				}
 				newsCategoryId = Integer.parseInt(categoryIdString);
-				//null为临时替换
+	
 				if(categoryService.find(newsCategoryId)!=null){
 					map = newsService.list(pageSize, currentPage, newsCategoryId);
 					String newsCategoryName = categoryService.find(newsCategoryId).getCategoryName();

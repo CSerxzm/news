@@ -32,46 +32,38 @@ public class NewsServlet extends HttpServlet {
 
 		response.setContentType("text/html");
 		String action = request.getParameter("action");
-		/* 这里展示导航栏项目 */
+
 		ICategoryService categoryService = new CategoryServiceImpl();
-		Category[] categoryList = categoryService.list();
-		request.setAttribute("categoryList", categoryList);
-
 		INewsService newsService = new NewsServiceImpl();
-		if ("look".equals(action)) {
-			look(request, response, newsService);
-		}
-	}
+		ICommentService commentService = new CommentServiceImpl();
 
-	private void look(HttpServletRequest request, HttpServletResponse response,
-			INewsService newsService) throws NumberFormatException,
-			ServletException, IOException {
-		
-		String newsIdString = request.getParameter("id");
-		try {
-			int newsId = Integer.parseInt(newsIdString);
-			NewsDetails newsDetails = null;
-			newsDetails = newsService.find(newsId);
-			if(null!=newsDetails){
-				ICommentService commentService = new CommentServiceImpl();
-				Comment[] commentLists = commentService.list(newsId);
-				request.setAttribute("commentLists", commentLists);
-				NewsList[] newsList = newsService.listHot();
-				request.setAttribute("newsList", newsList);
-				request.setAttribute("newsDetails", newsDetails);
-				request.getRequestDispatcher("/WEB-INF/newsDetails.jsp").forward(request,
-						response);
-			}else{
+		if ("look".equals(action)) {
+			String newsIdString = request.getParameter("id");
+			try {
+				Category[] categoryList = categoryService.list();
+				request.setAttribute("categoryList", categoryList);
+				int newsId = Integer.parseInt(newsIdString);
+				NewsDetails newsDetails = null;
+				newsDetails = newsService.find(newsId);
+				if(null!=newsDetails){
+					Comment[] commentLists = commentService.list(newsId);
+					request.setAttribute("commentLists", commentLists);
+					NewsList[] newsList = newsService.listHot();
+					request.setAttribute("newsList", newsList);
+					request.setAttribute("newsDetails", newsDetails);
+					request.getRequestDispatcher("/WEB-INF/newsDetails.jsp").forward(request,
+							response);
+				}else{
+					request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request,
+							response);
+				}
+				
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
 				request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request,
 						response);
 			}
-			
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-			request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request,
-					response);
 		}
-		
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -79,7 +71,9 @@ public class NewsServlet extends HttpServlet {
 		response.setContentType("text/html");
 		String action = request.getParameter("action");
 		if ("comment".equals(action)) {
+			
 			ICommentService commentService = new CommentServiceImpl();
+			
 			String newsIdString = request.getParameter("newsId");
 			String commentContent =  new String(request.getParameter("commentContent").getBytes("ISO-8859-1"),"UTF-8");
 			HttpSession session = request.getSession();

@@ -54,9 +54,11 @@ public class NewsManageServlet extends HttpServlet {
 					request, response);
 		} else if ("goupdate".equals(action)) {
 			int newsId = Integer.parseInt(request.getParameter("id"));
+			
 			INewsService newsService = new NewsServiceImpl();
-			NewsDetails newsDetails = newsService.find(newsId);
 			ICategoryService categoryService = new CategoryServiceImpl();
+			
+			NewsDetails newsDetails = newsService.find(newsId);
 			Category[] categoryList = categoryService.list();
 			request.setAttribute("newsDetails", newsDetails);
 			request.setAttribute("categoryList", categoryList);
@@ -64,7 +66,9 @@ public class NewsManageServlet extends HttpServlet {
 					request, response);
 		} else if ("delete".equals(action)) {
 			int newsId = Integer.parseInt(request.getParameter("id"));
+			
 			INewsService newsService = new NewsServiceImpl();
+			
 			if (true == newsService.delete(newsId)) {
 				response.sendRedirect("news?action=listnews&page=1");
 			} else {
@@ -75,8 +79,10 @@ public class NewsManageServlet extends HttpServlet {
 		} else if ("search".equals(action)) {
 			doPost(request, response);
 		} else if ("listnews".equals(action)) {
+			
 			INewsService newsService = new NewsServiceImpl();
 			ICategoryService categoryService = new CategoryServiceImpl();
+			
 			String categoryIdString = request.getParameter("cate");
 			String currentPageString = request.getParameter("page");
 			int pageSize = 12;
@@ -115,11 +121,15 @@ public class NewsManageServlet extends HttpServlet {
 		response.setContentType("text/html");
 		String action = request.getParameter("action");
 		if ("addnews".equals(action)) {
+			
 			INewsService newsService = new NewsServiceImpl();
+			
 			int newsId = newsService.add(upload(request, response));
 			response.sendRedirect("news?action=look&id=" + newsId);
 		} else if ("update".equals(action)) {
+			
 			INewsService newsService = new NewsServiceImpl();
+			
 			News news = upload(request, response);
 			if (true == newsService.update(news)) {
 				response.sendRedirect("news?action=look&id=" + news.getId());
@@ -226,15 +236,14 @@ public class NewsManageServlet extends HttpServlet {
 					}
 				} else if (!"".equals(item.getName())) {
 					try {
-						File fullFile = new File(item.getName());
 						File savedFile = new File(uploadPath,
-								fullFile.getName());
+								item.getName());
 						item.write(savedFile);
 						news.setNewsPictureSite(request.getScheme() + "://"
 								+ request.getServerName() + ":"
 								+ request.getServerPort()
 								+ request.getContextPath() + "/"
-								+ "File/" + fullFile.getName());
+								+ "File/" + item.getName());
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

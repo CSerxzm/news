@@ -27,19 +27,7 @@ public class ManageServlet extends HttpServlet {
 		response.setContentType("text/html");
 		String action = request.getParameter("action");
 		HttpSession session = request.getSession();
-		String username=(String) session.getAttribute("userName");
-		if ("gologin".equals(action)) {
-			if(username!=null) {
-				Boolean isRoot=(Boolean) session.getAttribute("IsRoot");
-				if(isRoot==true) {
-					request.getRequestDispatcher("/WEB-INF/background/manage.jsp").forward(request, response);
-				}else {
-					request.getRequestDispatcher("/index").forward(request, response);
-				}
-			}else {
-				request.getRequestDispatcher("/index").forward(request, response);				
-			}
-		}else if ("logout".equals(action)){
+		if ("logout".equals(action)){
 			session.invalidate();
 			request.getRequestDispatcher("/index").forward(request, response);
 		}
@@ -49,9 +37,11 @@ public class ManageServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
+		
+		IUserService userService = new UserServiceImpl();
+		
 		String userName = request.getParameter("userName");
 		String userPass = request.getParameter("userPass");
-		IUserService userService = new UserServiceImpl();
 		String action = request.getParameter("action");
 		Users user = new Users();
 		user.setUserName(userName);

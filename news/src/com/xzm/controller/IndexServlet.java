@@ -29,6 +29,7 @@ public class IndexServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
+		
 		ICategoryService categoryService = new CategoryServiceImpl();
 		INewsService newsService = new NewsServiceImpl();
 		
@@ -59,7 +60,6 @@ public class IndexServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html");
 		doGet(request, response);
 	}
 
