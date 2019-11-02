@@ -10,7 +10,6 @@ public interface IUserService {
 	Users getByName(Users user);
 	Boolean UserIsExist(String userName);
 	int add(Users user);
-	
 	Map<String, Object> list(int pageSize, int currentPage);
 	boolean delete(String userName);
 	boolean update(Users user);

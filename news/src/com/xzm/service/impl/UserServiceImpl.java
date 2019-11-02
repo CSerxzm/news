@@ -12,7 +12,9 @@ import com.xzm.model.Users;
 import com.xzm.service.IUserService;
 
 public class UserServiceImpl implements IUserService {
+	
 	private static IUserDao userDao = new UserDaoImpl();
+	
 	public Users getByName(Users user) {
 		Users userTemp = null;
 		userTemp = userDao.getByName(user.getUserName());
@@ -21,6 +23,7 @@ public class UserServiceImpl implements IUserService {
 		}
 		return null;
 	}
+	
 	public Boolean UserIsExist(String userName) {
 		Users userTemp = null;
 		userTemp = userDao.getByName(userName);
@@ -29,11 +32,11 @@ public class UserServiceImpl implements IUserService {
 		}
 		return false;
 	}
+	
 	public int add(Users user) {
 		return userDao.save(user);
 	}
-	
-	//后台管理部分
+
 	public Map<String, Object> list(int pageSize, int current) {
 		Page pageBean = new Page();
 		int allRecords = userDao.countRow();
@@ -61,6 +64,7 @@ public class UserServiceImpl implements IUserService {
 			return false;
 		}
 	}
+	
 	public boolean update(Users user) {
 		if(1==userDao.update(user)){
 			return true;

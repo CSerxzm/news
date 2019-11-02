@@ -13,6 +13,7 @@ public class CategoryServiceImpl implements ICategoryService {
 
 	private static ICategoryDao categoryDao = new CategoryDaoImpl();
 	private static INewsService newsService = new NewsServiceImpl();
+	
 	public boolean add(Category category) {
 		int resultId;
 		try {
@@ -31,9 +32,7 @@ public class CategoryServiceImpl implements ICategoryService {
 		listCategory = categoryDao.list();
 		if(listCategory.size()>0){
 			Category[] categoryList = new Category[listCategory.size()];
-			for (int i = 0; i < listCategory.size(); i++) {
-				categoryList[i]=new Category(listCategory.get(i).getId(),listCategory.get(i).getCategoryName(),listCategory.get(i).getCategoryPriority());
-			}
+			listCategory.toArray(categoryList);
 			return categoryList;
 		}
 		return new Category[0];

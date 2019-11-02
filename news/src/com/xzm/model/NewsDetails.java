@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class NewsDetails {
+	
 	private int newsId;
 	private String newsTitle;
 	private String newsPublishTime;

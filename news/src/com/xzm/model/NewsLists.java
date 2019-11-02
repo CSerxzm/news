@@ -2,11 +2,11 @@ package com.xzm.model;
 
 
 public class NewsLists {
+	
 	private int newsCategoryId;
 	private String newsCategoryName;
-
 	private NewsList[] listCategoryNews;
-
+	
 	public NewsLists() {
 	}
 

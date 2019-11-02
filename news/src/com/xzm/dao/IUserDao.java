@@ -6,13 +6,11 @@ import com.xzm.model.News;
 import com.xzm.model.Users;
 
 public interface IUserDao {
-	Users getByName(String userName);
-	int save(Users user);//用于注册功能
-	
-	//后台功能
+	int save(Users user);
 	int delete(String userName);
+	public int update(Users user);
+	Users getByName(String userName);
 	List<Users> list();
 	int countRow();
 	List<Users> list(int startRecord, int pageSize);
-	public int update(Users user);
 }

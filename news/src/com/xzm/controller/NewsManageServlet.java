@@ -31,8 +31,7 @@ public class NewsManageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
+		super.destroy(); 
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,7 +41,6 @@ public class NewsManageServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		if ("goaddnews".equals(action)) {
 			ICategoryService categoryService = new CategoryServiceImpl();
-			System.out.println("categoryService="+categoryService);
 			Category[] categoryList = categoryService.list();
 			request.setAttribute("categoryList", categoryList);
 			request.getRequestDispatcher("/WEB-INF/background/addnews.jsp").forward(request,
@@ -106,7 +104,6 @@ public class NewsManageServlet extends HttpServlet {
 				request.getRequestDispatcher("/WEB-INF/background/news.jsp").forward(request,
 						response);
 			} catch (Exception e) {
-				System.out.println("error");
 				response.sendRedirect("/WEB-INF/background/error.jsp");
 			}
 		}
@@ -174,15 +171,11 @@ public class NewsManageServlet extends HttpServlet {
 		String uploadPath = this.getServletContext().getRealPath("/")
 				+ "File/"; 
 		File tempPathFile = null;
-		// Create a factory for disk-based file items
 		DiskFileItemFactory factory = new DiskFileItemFactory();
-		// Set factory constraints
-		factory.setSizeThreshold(4096); // 设置缓冲区大小，这里是4kb
-		factory.setRepository(tempPathFile);// 设置缓冲区目录
-		// Create a new file upload handler
+		factory.setSizeThreshold(4096); 
+		factory.setRepository(tempPathFile);
 		ServletFileUpload upload = new ServletFileUpload(factory);
-		// Set overall request size constraint
-		upload.setSizeMax(4194304); // 设置最大文件尺寸，这里是4MB
+		upload.setSizeMax(4194304);
 		List<FileItem> items = null;
 		try {
 			items = upload.parseRequest(request);
@@ -196,7 +189,6 @@ public class NewsManageServlet extends HttpServlet {
 				FileItem item = (FileItem) i.next();
 				if (item.isFormField()) {
 					String fieldName = item.getFieldName();
-					System.out.println("fieldName="+fieldName);
 					 File filepath = new File(uploadPath,fieldName);
 					 if(!filepath.getParentFile().exists()) {
 						 filepath.getParentFile().mkdirs();

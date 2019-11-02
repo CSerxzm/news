@@ -6,7 +6,6 @@ public class Page {
 	private int pageSize; // 每页显示的记录数
 	private int totalPages; // 总页数
 	private int allRecords; // 总记录数
-
 	private boolean isFirstPage; // 是否是第一页
 	private boolean isFinalPage; // 是否是最后一页
 	private boolean hasPreviousPage; // 是否有上一页

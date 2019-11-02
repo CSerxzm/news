@@ -8,6 +8,5 @@ public interface ICategoryService {
 	Category[] list();
 	boolean update(Category category);
 	Category find(int categoryId);
-	boolean delete(int categoryId);
-	
+	boolean delete(int categoryId);	
 }

@@ -25,7 +25,7 @@ public class LoginFilter implements Filter {
 		String userName = (String) session.getAttribute("userName");
 		if(null==userName){
 			HttpServletResponse response = (HttpServletResponse)resp;
-			request.getRequestDispatcher("/WEB-INF/background/login.jsp").forward(request,
+			request.getRequestDispatcher("/index").forward(request,
 					response);
 		}else{
 			chain.doFilter(req, resp);

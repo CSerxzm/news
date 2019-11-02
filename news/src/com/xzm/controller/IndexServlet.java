@@ -31,22 +31,20 @@ public class IndexServlet extends HttpServlet {
 		response.setContentType("text/html");
 		ICategoryService categoryService = new CategoryServiceImpl();
 		INewsService newsService = new NewsServiceImpl();
-		/*这是展示图片新闻的模块的内容*/
+		
 		boolean newsIsPicture = true;
 		List<PicNews> listPicNews = new ArrayList<PicNews>();
 		listPicNews= newsService.listPic(newsIsPicture);
-		/*这是展示头条新闻的模块的内容*/
+		
 		boolean newsIsTopLine = true;
 		TopLineNews topLineNews = new TopLineNews();
 		topLineNews = newsService.getTopLine(newsIsTopLine);
-		/*这是展示热门新闻的模块的内容*/
+		
 		boolean newsIsHot = true;
 		List<NewsList> listHotNews = new ArrayList<NewsList>();
 		listHotNews = newsService.listHot(newsIsHot);
-		
-		/*这里展示导航栏项目*/
+
 		Category[]  categoryList = categoryService.list();
-		/*这是展示各个新闻类别及内容的模块的内容*/
 		NewsLists[] newsLists = new NewsLists[categoryList.length];
 		for (int i = 0; i < categoryList.length; i++) {
 			newsLists[i]=new NewsLists(categoryList[i].getId(),categoryList[i].getCategoryName(),newsService.list(categoryList[i].getId()));

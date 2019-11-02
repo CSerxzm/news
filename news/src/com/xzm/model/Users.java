@@ -1,6 +1,7 @@
 package com.xzm.model;
 
 public class Users {
+	
 	private String userName;
 	private String userPass;
 	private String isRoot;

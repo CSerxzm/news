@@ -29,12 +29,7 @@ public class CommentServiceImpl implements ICommentService {
 	public Comment[] list(int newsId) {
 		List<Comment> lists = commentDao.list(newsId);
 		Comment[] commentLists = new Comment[lists.size()];
-		for (int i = 0; i < lists.size(); i++) {
-			commentLists[i] = new Comment(lists.get(i).getId(), lists.get(
-					i).getCommentUser(), lists
-					.get(i).getCommentContent(), lists.get(i)
-					.getCommentPublishTime(), lists.get(i).getCommentNewsId());
-		}
+		lists.toArray(commentLists);
 		return commentLists;
 	}
 
@@ -51,13 +46,7 @@ public class CommentServiceImpl implements ICommentService {
 		pageBean.init(allRecords, currentPage, pageSize, totalPages);
 		List<Comment> comments = commentDao.list(startRecord, pageSize);
 		Comment[] commentList = new Comment[comments.size()];
-		for (int i = 0; i < comments.size(); i++) {
-			commentList[i] = new Comment(comments.get(i).getId(), comments
-					.get(i).getCommentUser(), comments.get(i)
-							.getCommentContent(), comments.get(i)
-							.getCommentPublishTime(), comments.get(i)
-							.getCommentNewsId());
-		}
+		comments.toArray(commentList);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("commentList", commentList);
 		map.put("pageBean", pageBean);

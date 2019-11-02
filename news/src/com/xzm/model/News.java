@@ -3,28 +3,17 @@ package com.xzm.model;
 import java.util.Date;
 
 public class News {
+	
 	private int id;
 	private String newsTitle;
 	private Date newsPublishTime;
 	private String newsContent;
-	/**
-	 * This property is used to express news is a news in pictures
-	 */
 	private boolean newsIsPicture;
 	private String newsPictureSite;
-	/**
-	 * This property is used to represent the news headlines are
-	 */
 	private boolean newsIsTopLine;
-	/**
-	 * This property is used to express news is a hot news
-	 */
 	private boolean newsIsHot;
 	private int newsCategoryId;
 	private int newsHitCount;
-	/**
-	 * This property is used to express the news is what category
-	 */
 	private int newsCommentCount;
 
 	public News() {

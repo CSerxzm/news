@@ -26,11 +26,6 @@ public class CommentDaoImpl extends JDBCDaoSupport<Comment> implements ICommentD
 		return super.executeGet(findSql, Comment.class, commentId);
 	}
 
-	public int update(Comment comment) {
-		String updateSql = "update t_comment set commentUser=?,commentContent=?,commentPublishTime=?,commentNewsId=? where id=?";
-		return super.executeUpdateAndDelete(updateSql, comment.getCommentUser(),comment.getCommentContent(),comment.getCommentPublishTime(),comment.getCommentNewsId(),comment.getId());
-	}
-
 	public List<Comment> list() {
 		String listSql = "select * from t_comment";
 		return super.executeList(listSql, Comment.class);
@@ -50,7 +45,5 @@ public class CommentDaoImpl extends JDBCDaoSupport<Comment> implements ICommentD
 		String listSql = "select * from t_comment  order by id desc limit ?,?";
 		return super.executeList(listSql,Comment.class,startRecord,pageSize);
 	}
-
-	
 
 }

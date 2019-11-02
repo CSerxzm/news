@@ -1,6 +1,7 @@
 package com.xzm.model;
 
 public class Category {
+	
 	private int id;
 	private String categoryName;
 	private int categoryPriority;

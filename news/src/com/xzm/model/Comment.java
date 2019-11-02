@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Comment {
+	
 	private int id;
 	private String commentUser;
 	private String commentContent;

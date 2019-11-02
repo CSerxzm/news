@@ -1,6 +1,7 @@
 package com.xzm.model;
 
 public class PicNews {
+	
 	private int newsId;
 	private String newsTitle;
 	private String newsPictureSite;
