@@ -13,5 +13,9 @@
   <li>评论更新</li>
   <li>用户更新</li>
 </ol>
-<p>用户可以直接将news.sql文件导入数据库，将news.war部署到服务器，进行访问</p>
+<p>用户可以直接将news.sql文件导入数据库，将news.war部署到服务器，进行访问.</p>
 版权归**大学计算机**课程设计，如有疑问联系qq：3052720966。
+<p><img src="https://github.com/CSerxzm/news/blob/master/Images/1.jpg"/></p>
+<p><img src="https://github.com/CSerxzm/news/blob/master/Images/2.jpg"/></p>
+<p><img src="https://github.com/CSerxzm/news/blob/master/Images/3.jpg"/></p>
+<p><img src="https://github.com/CSerxzm/news/blob/master/Images/4.jpg"/></p>
