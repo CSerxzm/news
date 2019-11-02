@@ -2,6 +2,9 @@
 # Date: 2019-11-02 12:51:36
 # Generator: MySQL-Front 6.1  (Build 1.26)
 
+DROP DATABASE IF EXISTS `news`;
+CREATE DATABASE `news`;
+USE `news`;
 
 #
 # Structure for table "t_category"
