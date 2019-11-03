@@ -18,7 +18,7 @@
 			else{
 			%>
 			<div>
-				<p>用户名:<a href="back/manage?action=gologin"><%=userName %></a></p>
+				<p>用户名:<a href="back/manage?action=login"><%=userName %></a></p>
 				<br/>
 				<p><a href="back/manage?action=logout">&nbsp;下&nbsp;&nbsp;线&nbsp;</a></p>			
 			</div>

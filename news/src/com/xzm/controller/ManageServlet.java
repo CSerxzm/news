@@ -30,6 +30,9 @@ public class ManageServlet extends HttpServlet {
 		if ("logout".equals(action)){
 			session.invalidate();
 			request.getRequestDispatcher("/index").forward(request, response);
+		}else{
+			//只有login方式，且用户为管理员
+			request.getRequestDispatcher("/WEB-INF/background/manage.jsp").forward(request, response);
 		}
 	}
 

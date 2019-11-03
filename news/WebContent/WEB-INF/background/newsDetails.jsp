@@ -31,7 +31,7 @@
 		<jsp:include page="back-top.jsp"></jsp:include>
 		<div class="center">
 			<div class="newsDetails-body-middle">
-				<div class="newsDetails-body-middle-content">
+				<div class="newsDetails-body-middle-content news-detail">
 					<h1><%=newsDetails.getNewsTitle()%></h1>
 					<p>
 						发表时间：<%=newsDetails.getNewsPublishTime()%>&nbsp;&nbsp;阅读次数：<%=newsDetails.getNewsHitCount()%>&nbsp;&nbsp;评论条数：<%=newsDetails.getNewsCommentCount()%>

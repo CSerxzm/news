@@ -46,6 +46,8 @@ a:hover {
 	float: center;
 }
 
+
+
 table{
 	vertical-align:middle;
 	width: 1000px;
@@ -55,4 +57,8 @@ table{
 	border:1px solid silver;
 	text-align: center;
 	min-width: 60px;
+}
+
+.news-detail{
+	text-align:left;
 }

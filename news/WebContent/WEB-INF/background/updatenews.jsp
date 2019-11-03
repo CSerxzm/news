@@ -119,13 +119,15 @@
 				</div>
 				<br> 新闻内容：<br>
 				<br>
+				<div class="news-detail" >
 				<textarea style="display: none" id="newsContent" name="newsContent"></textarea>
 				<!-- 加载编辑器的容器 -->
 				<script id="container" name="content" type="text/plain"><%=newsDetails.getNewsContent()%></script>
 				<!-- 实例化编辑器 -->
 				<script type="text/javascript">
-    	    var editor = UM.getEditor('container');
-    	</script>
+    	    		var editor = UM.getEditor('container');
+		    	</script>
+		    	</div>
 				<br>
 				<br> <input type="submit" style="height: 30px;font-size: 16px;"
 					value="确认保存">
