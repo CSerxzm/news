@@ -21,7 +21,7 @@ public class CategoryDaoImpl extends JDBCDaoSupport<Category> implements
 	public Category find(int categoryId) {
 		String findSql = "select * from t_category where id =?";
 		return super.executeGet(findSql, Category.class, categoryId);
-	}
+	}//类名
 
 	public int update(Category category) {
 		String updateSql = "update t_category set categoryName=?,categoryPriority=? where id = ?";

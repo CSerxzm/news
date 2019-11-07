@@ -31,8 +31,12 @@ public class ManageServlet extends HttpServlet {
 			session.invalidate();
 			request.getRequestDispatcher("/index").forward(request, response);
 		}else{
-			//只有login方式，且用户为管理员
-			request.getRequestDispatcher("/WEB-INF/background/manage.jsp").forward(request, response);
+			boolean isRoot = (Boolean) session.getAttribute("IsRoot");
+			if(isRoot) {
+				request.getRequestDispatcher("/WEB-INF/background/manage.jsp").forward(request, response);
+			}else {
+				request.getRequestDispatcher("/index").forward(request, response);
+			}
 		}
 	}
 
