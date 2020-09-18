@@ -14,11 +14,11 @@
 
 合肥工业大学计算机网络课程设计，如有疑问联系qq：3052720966,实验报告密码为发布者。
 
-<p><img src="https://github.com/CSerxzm/news/blob/master/Images/1.jpg" alt="图片加载中"/></p>
-<p><img src="https://github.com/CSerxzm/news/blob/master/Images/2.jpg" alt="图片加载中"/></p>
-<p><img src="https://github.com/CSerxzm/news/blob/master/Images/3.jpg" alt="图片加载中"/></p>
-<p><img src="https://github.com/CSerxzm/news/blob/master/Images/4.jpg" alt="图片加载中"/></p>
-<p><img src="https://github.com/CSerxzm/news/blob/master/Images/5.jpg" alt="图片加载中"/></p>
-<p><img src="https://github.com/CSerxzm/news/blob/master/Images/6.jpg" alt="图片加载中"/></p>
-<p><img src="https://github.com/CSerxzm/news/blob/master/Images/7.jpg" alt="图片加载中"/></p>
-<p><img src="https://github.com/CSerxzm/news/blob/master/Images/8.jpg" alt="图片加载中"/></p>
+<./Images/1.jpg>
+<./Images/2.jpg>
+<./Images/3.jpg>
+<./Images/4.jpg>
+<./Images/5.jpg>
+<./Images/6.jpg>
+<./Images/7.jpg>
+<./Images/8.jpg>
