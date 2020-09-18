@@ -1,5 +1,5 @@
 ## 网义新闻发布系统，更新完成
-新闻发布后台编辑系统采用[ueditor](http://ueditor.baidu.com/website/)
+新闻发布后台编辑系统采用[ueditor](http://ueditor.baidu.com/website/)   
 采用开发环境**Eclipse+Mysql+Tomcat7.0**
 ### 实现主要功能样式（详细见Image文件夹）
 ### 客户端功能  
